@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Phaser Example Runner</title>
+		<meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />       
+		<style>
+			html,
+			body {
+			  height: 100% ;
+			}
+
+			body {
+			  background: radial-gradient(#333, #111);
+			 /* overflow: hidden;*/
+			}
+			
+			#log textarea {
+				width: 400px;
+				padding: 10px;
+			}
+			
+			#deck {
+				min-height:25px;				
+				width: 423px;
+				
+				border: 1px solid red;
+			}
+			
+			#deck .card{
+				background-color: #EEE;
+				min-height:25px;								
+			}
+			
+			#actions {
+				min-height:25px;				
+				width: 423px;
+				border: 2px solid #555;
+				text-align: center;
+			}
+
+			div#players div.playerTitle{
+				height: 30px;
+			}
+			#players p{				
+				min-width: 100px;
+				text-align: center;
+				display: inline-block;
+				color: white;
+				padding: 16px 8px;
+				margin: 1px;
+				background-color: #4CAF50; 
+			}
+			
+			
+			.button {
+				background-color: #4CAF50; /* Green */
+				border: none;
+				color: white;
+				padding: 16px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 2px 2px;
+				-webkit-transition-duration: 0.4s; /* Safari */
+				transition-duration: 0.4s;
+				cursor: pointer;
+				/*display: block;*/
+			}
+
+			.buttonOption {				
+				background-color: #4CAF50;
+				color: white;				
+			}
+
+			.buttonOption:hover {
+				background-color: white; 
+				color: black; 
+			}
+
+			.buttonOption:focus {outline:0;}
+
+			.playerGround{
+				min-height:25px;				
+				width: 423px;
+				border: 2px solid #555;
+				text-align: center;
+				color:white;
+				display: table-cell;
+			}
+
+			.playersTurn {				
+				-webkit-transition-duration: 0.4s; /* Safari */
+				transition-duration: 0.4s;
+				background-color: #CCCC55; 
+				color: black;
+			}
+
+			.playableSpy {
+				border :1px solid red;
+				cursor: pointer;
+			}
+
+			.playableSpace {
+				border :1px solid gold !important;
+				background-color: #FFFFAC !important;
+				cursor: pointer;
+			}
+
+			div#tableBoard {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				display: grid;
+				grid-template-columns: 150px 150px 150px;
+				grid-template-rows: 150px 150px ;				
+				grid-gap: 20px;							
+				grid-template-areas:
+					'board_0 board_1 board_2'
+					'board_3 board_4 board_5'
+				;
+			}			
+
+			.board {
+				display: grid;
+				grid-template-columns: 75px 75px ;
+				grid-template-rows: 75px 75px;
+				grid-gap: 2px;
+				grid-template-columns: auto;
+			}
+
+			div#tableBoard board_0 {	
+				grid-area: board_0;				
+				grid-template-areas:
+					'space_0_0 space_0_1'
+					'space_0_3 space_0_2'
+				;
+			}
+
+			div#tableBoard board_1 {	
+				grid-area: board_1;									
+				grid-template-areas:
+					'space_1_0 space_1_1'
+					'space_1_3 space_1_2'
+				;
+			}
+
+			div#tableBoard board_2 {	
+				grid-area: board_2;									
+				grid-template-areas:
+					'space_2_0 space_2_1'
+					'space_2_3 space_2_2'
+				;
+			}
+
+			div#tableBoard board_3 {	
+				grid-area: board_3;									
+				grid-template-areas:
+					'space_3_0 space_3_1'
+					'space_3_3 space_3_2'
+				;
+			}
+
+			div#tableBoard board_4 {	
+				grid-area: board_4;									
+				grid-template-areas:
+					'space_4_0 space_4_1'
+					'space_4_3 space_4_2'
+				;
+			}
+
+			div#tableBoard board_5 {	
+				grid-area: board_5;									
+				grid-template-areas:
+					'space_5_0 space_5_1'
+					'space_5_3 space_5_2'
+				;
+			}
+
+			
+
+			div#tableBoard board_0 space_0_0 {	grid-area: space_0_0;	}
+			div#tableBoard board_0 space_0_1 {	grid-area: space_0_1;	}
+			div#tableBoard board_0 space_0_2 {	grid-area: space_0_2;	}
+			div#tableBoard board_0 space_0_3 {	grid-area: space_0_3;	}
+
+			div#tableBoard board_1 space_1_0 {	grid-area: space_1_0;	}
+			div#tableBoard board_1 space_1_1 {	grid-area: space_1_1;	}
+			div#tableBoard board_1 space_1_2 {	grid-area: space_1_2;	}
+			div#tableBoard board_1 space_1_3 {	grid-area: space_1_3;	}
+
+			div#tableBoard board_2 space_2_0 {	grid-area: space_2_0;	}
+			div#tableBoard board_2 space_2_1 {	grid-area: space_2_1;	}
+			div#tableBoard board_2 space_2_2 {	grid-area: space_2_2;	}
+			div#tableBoard board_2 space_2_3 {	grid-area: space_2_3;	}
+
+			div#tableBoard board_3 space_3_0 {	grid-area: space_3_0;	}
+			div#tableBoard board_3 space_3_1 {	grid-area: space_3_1;	}
+			div#tableBoard board_3 space_3_2 {	grid-area: space_3_2;	}
+			div#tableBoard board_3 space_3_3 {	grid-area: space_3_3;	}
+
+			div#tableBoard board_4 space_4_0 {	grid-area: space_4_0;	}
+			div#tableBoard board_4 space_4_1 {	grid-area: space_4_1;	}
+			div#tableBoard board_4 space_4_2 {	grid-area: space_4_2;	}
+			div#tableBoard board_4 space_4_3 {	grid-area: space_4_3;	}
+
+			div#tableBoard board_5 space_5_0 {	grid-area: space_5_0;	}
+			div#tableBoard board_5 space_5_1 {	grid-area: space_5_1;	}
+			div#tableBoard board_5 space_5_2 {	grid-area: space_5_2;	}
+			div#tableBoard board_5 space_5_3 {	grid-area: space_5_3;	}
+			
+			.space{ background-color: #333; border: 1px solid #222; }
+		</style>
+	</head>
+	<body>
+		<div id='log'>
+			<textarea id="logTA" cols="30" rows="5"></textarea>
+		</div>
+		<div id='actions'></div>		
+		<div id='tableBoard'></div>			
+		<div id='spyStack'></div>
+		<div id='players'></div>
+		
+		
+		
+		<script src="js/Utils.js"></script>		
+		<script src="js/SpyNationalityEnum.js"></script>
+		<script src="js/SpyAbilityEnum.js"></script>
+		<script src="js/Spy.js"></script>
+		<script src="js/SpaceVisilibilityEnum.js"></script>
+		<script src="js/Space.js"></script>
+		<script src="js/Player.js"></script>
+		<script src="js/MissionEnum.js"></script>
+		<script src="js/BoardAbilityEnum.js"></script>
+		<script src="js/Board.js"></script>
+		<script src="js/Round.js"></script>
+		<script src="js/Game.js"></script>
+		
+		<script src="js/Log.js"></script>
+		<script src="js/Loader.js"></script>
+		
+	<
+		
+		<script src="js/preLoader.js"></script>
+		
+	</body>
+</html>
