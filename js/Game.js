@@ -4,7 +4,9 @@ class Game {
 		Log.info("Waiting for "+n+" players...");
 		
 		Game.playerInitialCubes = 8-n;
-
+		Game.nBoardColumns = n>4 ? 4:3;
+		Game.nBoardLines = 2;
+		
 		for(var i = 1; i< n+1; i++){
 			var currPlayer = new Player("Player "+ i, Game.colors[i]);
 			Game.playerList.push(currPlayer);

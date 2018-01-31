@@ -12,6 +12,7 @@ SpyAbilityEnum.CONSPIRACY = new SpyAbilityEnum('Conspiracy');
 SpyAbilityEnum.DIPLOMACY = new SpyAbilityEnum('Diplomacy');
 SpyAbilityEnum.NATIONALISM = new SpyAbilityEnum('Nationalism');
 SpyAbilityEnum.WOMAN = new SpyAbilityEnum('Woman');
+SpyAbilityEnum.DA = new SpyAbilityEnum('Double Agent');
 
 
 //console.log(SpyAbilityEnum.ASSASSIN); // SpyAbilityEnum.ASSASSIN

@@ -1,17 +1,22 @@
 class Round {
 	constructor() {
 		var boardIds = Round.genRandomBoardIds();
-		var boardsRotation = Array.from({length: 6}, () => Math.floor(Math.random() * 4));
-		//var boardsRotation = Array.from({length: 6}, () => 1);
-		
+		var boardsRotation = Array.from({length: boardIds.length}, () => Math.floor(Math.random() * 4));
+		//var boardsRotation = Array.from({length: boardIds.length: 6}, () => 1);
 		//
-		this.boards = [];
-		for(var i = 0; i < boardIds.length; i++){
-			var currBoard = Board.generateBoard(boardIds[i]);	
-			currBoard.awardSpy = Spy.popFromStack();
-			currBoard.rotate(boardsRotation[i]);
-			this.boards.push(currBoard);
-		}
+//		 
+		
+		this.boards = Array(Game.nBoardLines).fill(0).map(x => Array(Game.nBoardColumns).fill(null));
+
+		for(var l = 0; l < Game.nBoardLines; l++){
+			for(var c = 0; c < Game.nBoardColumns; c++){	  
+				var currBoard = Board.generateBoard(boardIds.pop());
+				currBoard.awardSpy = Spy.popFromStack();
+				currBoard.rotate(boardsRotation.pop());
+				this.boards[l][c] = currBoard 
+			}
+		  }	
+		  
 		//
 		this.generateGrid();
 		
@@ -26,32 +31,32 @@ class Round {
 	}
 
 	static genRandomBoardIds(){
-		var boardIds = Array.from(new Array(8),(val,index)=>index+1);
+		var boardIds = Array.from(new Array(10),(val,index)=>index);
 		//shuffle(boardIds);		
-		return boardIds.slice(0,6);
+		return boardIds.slice(0,Game.nBoardColumns*2);
 		/*var k = boardIds.slice(0,5);
 		k.unshift(boardIds[7]);
 		return k;*/
 	}
 
 	/**
-	 * Transforms a Round Tableboard into a 6x4 
+	 * Transforms a Round Tableboard into a 6x4  
 	 */
 	generateGrid(){
-		this.tableBoardGrid = Array.from({length: 4}, () => Array.from({length: 6}, () => null));
+		this.tableBoardGrid = Array.from({length: Game.nBoardLines*2}, () => Array.from({length: Game.nBoardColumns*2}, () => null));
 		this.spacesMap = new Map();
 
-		for(var boardSeqId = 0; boardSeqId<this.boards.length; boardSeqId++){
-			var currBoard = this.boards[boardSeqId]
-
-			for(var spaceSeqId = 0; spaceSeqId<currBoard.spaces.length; spaceSeqId++){				
-				var currSpace = currBoard.spaces[spaceSeqId];				
-				var x = (boardSeqId%3)*2 + ( spaceSeqId == 0 || spaceSeqId ==3 ? 0 : 1);
-				var y = Math.floor(boardSeqId/3)*2 +(spaceSeqId>1? 1:0);
-				this.tableBoardGrid[y][x] = currSpace;
-				this.spacesMap.set(currSpace.id, currSpace);
+		for(var l = 0; l < Game.nBoardLines; l++){ 	
+			for(var c = 0; c < Game.nBoardColumns; c++){	 
+				for(var s = 0; s < this.boards[l][c].spaces.length; s++){		
+					var nL = l*2+(s<2 ? 0:1);
+					var nC = c*2+( s==0 || s==3 ? 0:1);
+					var currSpace= this.boards[l][c].spaces[s];
+					this.tableBoardGrid[nL][nC] = currSpace;					
+					this.spacesMap.set(currSpace.id, currSpace);
+				}				
 			}
-		}
+	  	}		
 	}
 	
 }

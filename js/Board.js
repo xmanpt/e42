@@ -1,5 +1,6 @@
 class Board {
   constructor(solvSeqNr, name, awardSpacePosition, solvingSequence, spaces, boardAbility ) {
+	  console.log(solvSeqNr)
 	  this.solvSeqNr = solvSeqNr;
 	  this.name = name;
 	  this.awardSpacePosition = awardSpacePosition;	  
@@ -64,6 +65,12 @@ class Board {
 
   static generateBoard(boardId){
 	switch(boardId){
+		case 0: return new Board(0, "Alcantâra, Lisboa", 2, [3, 0, 1], [
+			new Space(false, SpaceVisilibilityEnum.LOCAL),
+			new Space(false, SpaceVisilibilityEnum.ADJACENT),
+			new Space(true, SpaceVisilibilityEnum.NONE),
+			new Space(false, SpaceVisilibilityEnum.NONE)
+			], BoardAbilityEnum.ROTATE_AFTER_PLAY);
 		case 1: return new Board(1, "Sto. António do Estoril", 0, [1, 2, 3], [
 			new Space(false, SpaceVisilibilityEnum.NONE),
 			new Space(true, SpaceVisilibilityEnum.NONE),
@@ -112,7 +119,13 @@ class Board {
 			new Space(true, SpaceVisilibilityEnum.ADJACENT),
 			new Space(true, SpaceVisilibilityEnum.ALL),
 			new Space(true, SpaceVisilibilityEnum.NONE)
-			], BoardAbilityEnum.NONE);				
+			], BoardAbilityEnum.NONE);		
+		case 9 : return new Board(9, "Hotel Avenida Palace, Lisboa", 0, [3, 1, 2], [
+			new Space(false, SpaceVisilibilityEnum.NONE),
+			new Space(true, SpaceVisilibilityEnum.LOCAL),
+			new Space(true, SpaceVisilibilityEnum.ADJACENT),
+			new Space(true, SpaceVisilibilityEnum.NONE)
+			], BoardAbilityEnum.NATIONALISM_INCREASE_STRENGTH);				
 		}
 	  }
 	  

@@ -20,6 +20,8 @@ MissionEnum.MOST_PORTUGUESE = new MissionEnum('Most Portuguese' , 6, 'Have the m
 MissionEnum.MOST_WOMEN = new MissionEnum('Most Women' , 6, 'Have the most women spies');
 MissionEnum.STRONGEST  = new MissionEnum('Strongest' , 6, 'Have the strongest handset');
 MissionEnum.MOST_NATION_DIVERSITY  = new MissionEnum('Most Nation Diversity' , 6, 'Have the most diverse number of nationalities between ES, FR, IT, HU, SU, YO');
+MissionEnum.MOST_DA  = new MissionEnum('Most Double Agents' , 6, 'Have the most double agent abilities');
+MissionEnum.MOST_DISCARDED  = new MissionEnum('Most Discarded Spies' , 6, 'Have the most discarded spies');
 
 
 //console.log(MissionEnum.ASSASSIN); // MissionEnum.ASSASSIN

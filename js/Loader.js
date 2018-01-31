@@ -18,9 +18,9 @@ Spy.spyStack.push(new Spy("S. Smith", SpyNationalityEnum.US, 1, 3, [SpyAbilityEn
 Spy.spyStack.push(new Spy("Amélia", SpyNationalityEnum.PT, 4, 1, [SpyAbilityEnum.CHARM, SpyAbilityEnum.WOMAN]));  
 Spy.spyStack.push(new Spy("Dusko P.", SpyNationalityEnum.YU, 3, 1, [SpyAbilityEnum.CONSPIRACY, SpyAbilityEnum.CONSPIRACY]));  
 Spy.spyStack.push(new Spy("I. Shouwaloff", SpyNationalityEnum.SU, 1, 1, [SpyAbilityEnum.ASSASSIN, SpyAbilityEnum.ASSASSIN]));  
-Spy.spyStack.push(new Spy("Antoine S. E.", SpyNationalityEnum.FR, 2, 2, [SpyAbilityEnum.CHARM, SpyAbilityEnum.CONSPIRACY]));  
+Spy.spyStack.push(new Spy("Antoine S.E.", SpyNationalityEnum.FR, 2, 2, [SpyAbilityEnum.CHARM, SpyAbilityEnum.CONSPIRACY]));  
 Spy.spyStack.push(new Spy("Zarah L.", SpyNationalityEnum.DE, 1, 4, [SpyAbilityEnum.CHARM, SpyAbilityEnum.WOMAN]));  
-Spy.spyStack.push(new Spy("I. L. Fleming", SpyNationalityEnum.GB, 3, 2, [SpyAbilityEnum.CHARM]));  
+Spy.spyStack.push(new Spy("I.L. Fleming", SpyNationalityEnum.GB, 3, 2, [SpyAbilityEnum.CHARM]));  
 Spy.spyStack.push(new Spy("Loreta B.", SpyNationalityEnum.GB, 1, 4, [SpyAbilityEnum.CONSPIRACY, SpyAbilityEnum.WOMAN]));  
 Spy.spyStack.push(new Spy("E. Windsor", SpyNationalityEnum.GB, 4, 2, [SpyAbilityEnum.DIPLOMACY]));  
 Spy.spyStack.push(new Spy("A. Monteiro", SpyNationalityEnum.PT, 3, 3, [SpyAbilityEnum.DIPLOMACY]));  
@@ -30,6 +30,20 @@ Spy.spyStack.push(new Spy("Anne D.", SpyNationalityEnum.US, 2, 3, [SpyAbilityEnu
 Spy.spyStack.push(new Spy("Clark G.", SpyNationalityEnum.US, 2, 4, [SpyAbilityEnum.DIPLOMACY]));  
 Spy.spyStack.push(new Spy("Zsa Zsa G.", SpyNationalityEnum.HU, 1, 3, [SpyAbilityEnum.CHARM, SpyAbilityEnum.CHARM, SpyAbilityEnum.WOMAN]));  
 Spy.spyStack.push(new Spy("C. Lucky Luciano", SpyNationalityEnum.IT, 5, 1, []));     
+//DAS
+Spy.spyStack.push(new Spy("S. Buonocore", SpyNationalityEnum.US, 2, 3, [SpyAbilityEnum.DA]));  
+Spy.spyStack.push(new Spy("Eileen B.", SpyNationalityEnum.GB, 3, 2, [SpyAbilityEnum.DA, SpyAbilityEnum.WOMAN]));     
+Spy.spyStack.push(new Spy("Yoshiko K.", SpyNationalityEnum.JP, 4, 1, [SpyAbilityEnum.DA, SpyAbilityEnum.WOMAN]));   
+Spy.spyStack.push(new Spy("Heiko E.", SpyNationalityEnum.DE, 1, 4, [SpyAbilityEnum.DA]));     
+Spy.spyStack.push(new Spy("R. Szozenkowak", SpyNationalityEnum.PL, 2, 3, [SpyAbilityEnum.DA]));     
+Spy.spyStack.push(new Spy("M. Morishima", SpyNationalityEnum.JP, 2, 2, [SpyAbilityEnum.NATIONALISM, SpyAbilityEnum.WOMAN]));  
+Spy.spyStack.push(new Spy("Mihajio D.", SpyNationalityEnum.YU, 3, 2, [SpyAbilityEnum.DA]));     
+//ENIGMA
+Spy.spyStack.push(new Spy("J. Baker", SpyNationalityEnum.US, 0, 1, [SpyAbilityEnum.ASSASSIN, SpyAbilityEnum.CHARM, SpyAbilityEnum.WOMAN] ));
+Spy.spyStack.push(new Spy("G.F. Kennan", SpyNationalityEnum.US, 3, 2, [SpyAbilityEnum.DIPLOMACY, SpyAbilityEnum.CONSPIRACY] ));
+Spy.spyStack.push(new Spy("I.J. Paderewski", SpyNationalityEnum.PL, 3, 3, [SpyAbilityEnum.DIPLOMACY, SpyAbilityEnum.NATIONALISM] ));
+Spy.spyStack.push(new Spy("Kzyetyha S.", SpyNationalityEnum.PL, 3, 1, [SpyAbilityEnum.ASSASSIN, SpyAbilityEnum.WOMAN]));
+
 //shuffle(Spy.spyStack);
 console.log("SpyStack setup ended. " + Spy.spyStack.length + " spies loaded.");
 

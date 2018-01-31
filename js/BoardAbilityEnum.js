@@ -13,6 +13,8 @@ BoardAbilityEnum.GERMAN_INCREASE_STRENGTH = new BoardAbilityEnum('GERMAN INCREAS
 BoardAbilityEnum.ALL_EXTERIOR = new BoardAbilityEnum('ALL EXTERIOR');
 BoardAbilityEnum.DICE = new BoardAbilityEnum('DICE');
 BoardAbilityEnum.WEAKER_DISCARDS = new BoardAbilityEnum('WEAKER DISCARDS');
+BoardAbilityEnum.NATIONALISM_INCREASE_STRENGTH = new BoardAbilityEnum('NATIONALISM INCREASE STRENGTH');
+BoardAbilityEnum.ROTATE_AFTER_PLAY = new BoardAbilityEnum('ROTATE BOARD AFTER PLAY');
 
 
 
