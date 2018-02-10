@@ -1,24 +1,24 @@
-class BoardAbilityEnum {
-    constructor(name) {
-        this.name = name;
-    }
-    toString() {
-        return `BoardAbilityEnum.${this.name}`;
-    }
+const BoardAbilityEnum = Object.freeze({
+    NO_MURDERS: { name: "NO MURDERS"}, 
+    BRITISH_INCREASE_STRENGTH : { name: "BRITISH INCREASE STRENGTH"},
+    NONE : { name: "NONE"},
+    GERMAN_INCREASE_STRENGTH : { name: "GERMAN INCREASE STRENGTH"},
+    ALL_EXTERIOR : { name: "ALL EXTERIOR"},
+    DICE : { name: "DICE"},
+    WEAKER_DISCARDS : { name: "WEAKER DISCARDS"},
+    NATIONALISM_INCREASE_STRENGTH : { name: "NATIONALISM INCREASE STRENGTH"},
+    ROTATE_AFTER_PLAY : { name: "ROTATE BOARD AFTER PLAY"},
+});
+    
+
+function checkBoardAbility(boardAbility) {
+  switch (boardAbility) {
+    case BoardAbilityEnum.NO_MURDERS: 
+       document.write(boardAbility.name);
+       break;
+    default: 
+       document.write("Unknown color");
+  }
 }
-BoardAbilityEnum.NO_MURDERS = new BoardAbilityEnum('NO MURDERS');
-BoardAbilityEnum.BRITISH_INCREASE_STRENGTH = new BoardAbilityEnum('BRITISH INCREASE STRENGTH');
-BoardAbilityEnum.NONE = new BoardAbilityEnum('NONE');
-BoardAbilityEnum.GERMAN_INCREASE_STRENGTH = new BoardAbilityEnum('GERMAN INCREASE STRENGTH');
-BoardAbilityEnum.ALL_EXTERIOR = new BoardAbilityEnum('ALL EXTERIOR');
-BoardAbilityEnum.DICE = new BoardAbilityEnum('DICE');
-BoardAbilityEnum.WEAKER_DISCARDS = new BoardAbilityEnum('WEAKER DISCARDS');
-BoardAbilityEnum.NATIONALISM_INCREASE_STRENGTH = new BoardAbilityEnum('NATIONALISM INCREASE STRENGTH');
-BoardAbilityEnum.ROTATE_AFTER_PLAY = new BoardAbilityEnum('ROTATE BOARD AFTER PLAY');
 
 
-
-//console.log(BoardAbilityEnum.NO_MURDERS); // BoardAbilityEnum.NO_MURDERS
-
-// Membership test:
-//console.log(BoardAbilityEnum.NO_MURDERS instanceof BoardAbilityEnum); // true

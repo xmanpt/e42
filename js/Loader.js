@@ -57,37 +57,14 @@ Game.playerList = [];
 Game.colors = ["","#FF5454", "#45D245", "#36A5A5", "#FFA154"];
 Game.round = 0;
 
+
 /**
  * GAME LOGIC
  */
-Log.info("Welcome to game");
-
-class MAIN {	}
-
-MAIN.e = [];
-MAIN.e["actions"] = document.getElementById("actions");
-MAIN.e["players"] = document.getElementById("players");
-
-
-function clearActions(){
-	MAIN.e["actions"] .innerHTML = "";
-}
-
-function addActionBtn(text){
-	var btn = document.createElement("BUTTON");      
-	btn.classList.add("button", "buttonOption");
-	
-	var t = document.createTextNode(text);       
-	btn.appendChild(t);
-
-	MAIN.e["actions"] .appendChild(btn);   
-	return btn;
-}
 
 //
-Log.info("Select number of players");
 for(var i = 2 ; i<5; i++){
-	var btn = addActionBtn(i+" Player(s)");
+	var btn = Display.addActionBtn(i+" Player(s)");
 	btn.onclick = (
 		function(i) {
 			return function() {

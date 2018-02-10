@@ -6,7 +6,7 @@ class Spy {
 	this.winpoints = winpoints;
 	this.abilities = abilities;
 	
-	this.id = guid();
+	this.id ="Spy"+guid();
 	this.reset();
   }
   

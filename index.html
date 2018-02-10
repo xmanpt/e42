@@ -13,12 +13,7 @@
 			body {
 			  background: radial-gradient(#333, #111);
 			 /* overflow: hidden;*/
-			}
-			
-			#log textarea {
-				width: 400px;
-				padding: 10px;
-			}
+			}		
 			
 			#deck {
 				min-height:25px;				
@@ -108,6 +103,13 @@
 				cursor: pointer;
 			}
 
+			.targetableSpace{				
+				border : 2px solid gold !important;
+				-webkit-transition-duration: 0.4s; /* Safari */
+				transition-duration: 0.4s;
+				cursor: pointer;
+			}
+
 			div#tableBoard {
 				padding-top: 10px;
 				padding-bottom: 10px;
@@ -116,8 +118,8 @@
 				grid-template-rows: 150px 150px ;				
 				grid-gap: 20px;							
 				grid-template-areas:
-					'board_0 board_1 board_2'
-					'board_3 board_4 board_5'
+					'board_0_0 board_0_1 board_0_2'
+					'board_1_0 board_1_1 board_1_2'
 				;
 			}			
 
@@ -129,93 +131,91 @@
 				grid-template-columns: auto;
 			}
 
-			div#tableBoard board_0 {	
-				grid-area: board_0;				
+			div#tableBoard board_0_0 {	
+				grid-area: board_0_0;				
 				grid-template-areas:
-					'space_0_0 space_0_1'
-					'space_0_3 space_0_2'
+					'space_0_0_0 space_0_0_1'
+					'space_0_0_3 space_0_0_2'
 				;
 			}
 
-			div#tableBoard board_1 {	
-				grid-area: board_1;									
+			div#tableBoard board_0_1 {	
+				grid-area: board_0_1;									
 				grid-template-areas:
-					'space_1_0 space_1_1'
-					'space_1_3 space_1_2'
+					'space_0_1_0 space_0_1_1'
+					'space_0_1_3 space_0_1_2'
 				;
 			}
 
-			div#tableBoard board_2 {	
-				grid-area: board_2;									
+			div#tableBoard board_0_2 {	
+				grid-area: board_0_2;									
 				grid-template-areas:
-					'space_2_0 space_2_1'
-					'space_2_3 space_2_2'
+					'space_0_2_0 space_0_2_1'
+					'space_0_2_3 space_0_2_2'
 				;
 			}
 
-			div#tableBoard board_3 {	
-				grid-area: board_3;									
+			div#tableBoard board_1_0 {	
+				grid-area: board_1_0;				
 				grid-template-areas:
-					'space_3_0 space_3_1'
-					'space_3_3 space_3_2'
+					'space_1_0_0 space_1_0_1'
+					'space_1_0_3 space_1_0_2'
 				;
 			}
 
-			div#tableBoard board_4 {	
-				grid-area: board_4;									
+			div#tableBoard board_1_1 {	
+				grid-area: board_1_1;									
 				grid-template-areas:
-					'space_4_0 space_4_1'
-					'space_4_3 space_4_2'
+					'space_1_1_0 space_1_1_1'
+					'space_1_1_3 space_1_1_2'
 				;
 			}
 
-			div#tableBoard board_5 {	
-				grid-area: board_5;									
+			div#tableBoard board_1_2 {	
+				grid-area: board_1_2;									
 				grid-template-areas:
-					'space_5_0 space_5_1'
-					'space_5_3 space_5_2'
+					'space_1_2_0 space_1_2_1'
+					'space_1_2_3 space_1_2_2'
 				;
 			}
 
 			
 
-			div#tableBoard board_0 space_0_0 {	grid-area: space_0_0;	}
-			div#tableBoard board_0 space_0_1 {	grid-area: space_0_1;	}
-			div#tableBoard board_0 space_0_2 {	grid-area: space_0_2;	}
-			div#tableBoard board_0 space_0_3 {	grid-area: space_0_3;	}
+			div#tableBoard board_0_0 space_0_0_0 {	grid-area: space_0_0_0;	}
+			div#tableBoard board_0_0 space_0_0_1 {	grid-area: space_0_0_1;	}
+			div#tableBoard board_0_0 space_0_0_2 {	grid-area: space_0_0_2;	}
+			div#tableBoard board_0_0 space_0_0_3 {	grid-area: space_0_0_3;	}
 
-			div#tableBoard board_1 space_1_0 {	grid-area: space_1_0;	}
-			div#tableBoard board_1 space_1_1 {	grid-area: space_1_1;	}
-			div#tableBoard board_1 space_1_2 {	grid-area: space_1_2;	}
-			div#tableBoard board_1 space_1_3 {	grid-area: space_1_3;	}
+			div#tableBoard board_0_1 space_0_1_0 {	grid-area: space_0_1_0;	}
+			div#tableBoard board_0_1 space_0_1_1 {	grid-area: space_0_1_1;	}
+			div#tableBoard board_0_1 space_0_1_2 {	grid-area: space_0_1_2;	}
+			div#tableBoard board_0_1 space_0_1_3 {	grid-area: space_0_1_3;	}
 
-			div#tableBoard board_2 space_2_0 {	grid-area: space_2_0;	}
-			div#tableBoard board_2 space_2_1 {	grid-area: space_2_1;	}
-			div#tableBoard board_2 space_2_2 {	grid-area: space_2_2;	}
-			div#tableBoard board_2 space_2_3 {	grid-area: space_2_3;	}
+			div#tableBoard board_0_2 space_0_2_0 {	grid-area: space_0_2_0;	}
+			div#tableBoard board_0_2 space_0_2_1 {	grid-area: space_0_2_1;	}
+			div#tableBoard board_0_2 space_0_2_2 {	grid-area: space_0_2_2;	}
+			div#tableBoard board_0_2 space_0_2_3 {	grid-area: space_0_2_3;	}
 
-			div#tableBoard board_3 space_3_0 {	grid-area: space_3_0;	}
-			div#tableBoard board_3 space_3_1 {	grid-area: space_3_1;	}
-			div#tableBoard board_3 space_3_2 {	grid-area: space_3_2;	}
-			div#tableBoard board_3 space_3_3 {	grid-area: space_3_3;	}
+			div#tableBoard board_1_0 space_1_0_0 {	grid-area: space_1_0_0;	}
+			div#tableBoard board_1_0 space_1_0_1 {	grid-area: space_1_0_1;	}
+			div#tableBoard board_1_0 space_1_0_2 {	grid-area: space_1_0_2;	}
+			div#tableBoard board_1_0 space_1_0_3 {	grid-area: space_1_0_3;	}
 
-			div#tableBoard board_4 space_4_0 {	grid-area: space_4_0;	}
-			div#tableBoard board_4 space_4_1 {	grid-area: space_4_1;	}
-			div#tableBoard board_4 space_4_2 {	grid-area: space_4_2;	}
-			div#tableBoard board_4 space_4_3 {	grid-area: space_4_3;	}
+			div#tableBoard board_1_1 space_1_1_0 {	grid-area: space_1_1_0;	}
+			div#tableBoard board_1_1 space_1_1_1 {	grid-area: space_1_1_1;	}
+			div#tableBoard board_1_1 space_1_1_2 {	grid-area: space_1_1_2;	}
+			div#tableBoard board_1_1 space_1_1_3 {	grid-area: space_1_1_3;	}
 
-			div#tableBoard board_5 space_5_0 {	grid-area: space_5_0;	}
-			div#tableBoard board_5 space_5_1 {	grid-area: space_5_1;	}
-			div#tableBoard board_5 space_5_2 {	grid-area: space_5_2;	}
-			div#tableBoard board_5 space_5_3 {	grid-area: space_5_3;	}
+			div#tableBoard board_1_2 space_1_2_0 {	grid-area: space_1_2_0;	}
+			div#tableBoard board_1_2 space_1_2_1 {	grid-area: space_1_2_1;	}
+			div#tableBoard board_1_2 space_1_2_2 {	grid-area: space_1_2_2;	}
+			div#tableBoard board_1_2 space_1_2_3 {	grid-area: space_1_2_3;	}
 			
 			.space{ background-color: #333; border: 1px solid #222; }
+			.space p { color: white; margin:0; text-align: center; }
 		</style>
 	</head>
 	<body>
-		<div id='log'>
-			<textarea id="logTA" cols="30" rows="5"></textarea>
-		</div>
 		<div id='actions'></div>		
 		<div id='tableBoard'></div>			
 		<div id='spyStack'></div>
@@ -232,11 +232,13 @@
 		<script src="js/Player.js"></script>
 		<script src="js/MissionEnum.js"></script>
 		<script src="js/BoardAbilityEnum.js"></script>
+		<script src="js/BoardSpace.js"></script>
 		<script src="js/Board.js"></script>
 		<script src="js/Round.js"></script>
+		<script src="js/RoundSolver.js"></script>
 		<script src="js/Game.js"></script>
 		
-		<script src="js/Log.js"></script>
+		<script src="js/Display.js"></script>
 		<script src="js/Loader.js"></script>
 		
 	<

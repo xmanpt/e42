@@ -1,67 +1,53 @@
 class Board {
   constructor(solvSeqNr, name, awardSpacePosition, solvingSequence, spaces, boardAbility ) {
-	  console.log(solvSeqNr)
 	  this.solvSeqNr = solvSeqNr;
 	  this.name = name;
-	  this.awardSpacePosition = awardSpacePosition;	  
-	  /*   ________
-		  |_0_|_1_|
-		  |_3_|_2_|
-	  */
+	  this.awardSpacePosition = awardSpacePosition;	  	  
 	  this.solvingSequence = solvingSequence;
-	  this.spaces = spaces;
 	  this.boardAbility = boardAbility;
+
+
+	  this.boardSpaces = [];
+	  for(var i = 0; i<spaces.length; i++ ){
+			this.boardSpaces.push(new BoardSpace(spaces[i]));
+	  }
 	  
 	  this.reset();
   }
   
   set awardSpy(spy){
-	  this.spaces[this.awardSpacePosition].spy = spy;
+	  this.boardSpaces[this.awardSpacePosition].space.spy = spy;
   }
   
   get awardSpy(){
-	return this.spaces[this.awardSpacePosition].spy;
+	return this.boardSpaces[this.awardSpacePosition].space.spy;
   }
 
   reset(){
 	  this.card = null;
   }  
 
-  displayBoard(pElem, boardId){
-		console.log("displayBoard")
-		var boardElem = document.createElement("Board_"+boardId);      
-		boardElem.classList.add("board");		
-		for(var i = 0; i<this.spaces.length; i++){
-			var spaceElem = this.spaces[i].displaySpace(boardElem, boardId, i);
-			var solveOrder = this.solvingSequence.indexOf(i);
-			if(solveOrder>-1)
-				spaceElem.innerHTML += solveOrder;
-			if(i==this.awardSpacePosition){
-				spaceElem.style.background = "#59363A";
-			}
-
-			boardElem.appendChild(spaceElem);		
-		}
-		return boardElem;
-  }
+  
 
   rotate(r){
-	  console.log("rotating " + this+ " : " + r +" rad");
+	  //console.log("rotating " + this+ " : " + r +" rad");
 	  this.solvingSequence= this.solvingSequence.map( elem => (elem + r) % 4);
 
-	  var fixedSpace = this.awardSpacePosition!=4 ? null : this.spaces.pop();
+	  var fixedSpace = this.awardSpacePosition!=4 ? null : this.boardSpaces.pop();
 
 	  if(fixedSpace==null){
-		  this.awardSpacePosition = (this.awardSpacePosition+r) % this.spaces.length;
+		  this.awardSpacePosition = (this.awardSpacePosition+r) % this.boardSpaces.length;
 	  }
 
 	  for(var i = 0; i < r; i++){
-		  var lastSpace = this.spaces.pop();
-		  this.spaces.unshift(lastSpace);
+		  var lastSpace = this.boardSpaces.pop();
+		  this.boardSpaces.unshift(lastSpace);
 	  }
 
-	  if(fixedSpace) this.spaces.push(fixedSpace);
+	  if(fixedSpace) this.boardSpaces.push(fixedSpace);
   }
+
+
 
   static generateBoard(boardId){
 	switch(boardId){
@@ -135,5 +121,7 @@ class Board {
 		if (a.solvSeqNr > b.solvSeqNr)
 		  return 1;
 		return 0;
-	  } 
+	 } 
+
+	  
 }

@@ -1,26 +1,29 @@
-class SpyNationalityEnum {
-    constructor(country) {
-        this.country = country;
+const SpyNationalityEnum = Object.freeze({
+    
+    DE: { name: "DE"},
+    ES: { name: "ES"},
+    FR: { name: "FR"},
+    GB: { name: "GB"},
+    HU: { name: "HU"},
+    JP: { name: "JP"},
+    IT: { name: "IT"},
+    PL: { name: "PL"},
+    PT: { name: "PT"},
+    SU: { name: "SU"},
+    US: { name: "US"},
+    YU: { name: "YU"},
+
+});
+   
+
+function checkSpyNationality(spyNationalityEnum) {
+    switch (spyNationality) {
+      case SpyNationalityEnum.DE: 
+         document.write(spyNationality.name);
+         break;
+      default: 
+         document.write("Unknown color");
     }
-    toString() {
-        return `SpyNationalityEnum.${this.country}`;
-    }
-}
-SpyNationalityEnum.DE = new SpyNationalityEnum('DE');
-SpyNationalityEnum.ES = new SpyNationalityEnum('ES');
-SpyNationalityEnum.FR = new SpyNationalityEnum('FR');
-SpyNationalityEnum.GB = new SpyNationalityEnum('GB');
-SpyNationalityEnum.HU = new SpyNationalityEnum('HU');
-SpyNationalityEnum.JP = new SpyNationalityEnum('JP');
-SpyNationalityEnum.IT = new SpyNationalityEnum('IT');
-SpyNationalityEnum.PL = new SpyNationalityEnum('PL');
-SpyNationalityEnum.PT = new SpyNationalityEnum('PT');
-SpyNationalityEnum.SU = new SpyNationalityEnum('SU');
-SpyNationalityEnum.US = new SpyNationalityEnum('US');
-SpyNationalityEnum.YU = new SpyNationalityEnum('YU');
+  }
+  
 
-
-//console.log(SpyNationalityEnum.DE); // SpyNationalityEnum.DE
-
-// Membership test:
-//console.log(SpyNationalityEnum.GB instanceof SpyNationalityEnum); // true

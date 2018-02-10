@@ -6,7 +6,7 @@ class Player {
 		this.availableSpyList = Spy.getPlayerInitialSpyList();
 		this.discardedSpyList = [];
 
-		this.id = guid();
+		this.id = "Player"+guid();
 		this.reset();
 	}	
   
@@ -22,14 +22,20 @@ class Player {
 		console.log(this.name + " received "+ nCubes+ " cubes");
 		this.nCubes = nCubes;		
 	}
+
 	addToHand(spy){
 		console.log(this.name + " received "+ spy.name);
-		this.availableSpyList.set(spy.id, spy);
+		this.availableSpyList.set(spy.id, spy);		
 	}
 
 	addToDiscardList(spy){
 		console.log(this.name + " discarded "+ spy.name);
 		this.discardedSpyList.push(spy);
+	}
+
+	discardFromHand(spy){
+		this.addToDiscardList(spy);
+		this.removeAvailableSpy(spy.id);
 	}
 
 	removeAvailableSpy(spyId){
