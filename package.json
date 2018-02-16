@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/xmanpt/e42/issues"
   },
-  "homepage": "https://github.com/xmanpt/e42#readme"
+  "homepage": "https://github.com/xmanpt/e42#readme",
+  "dependencies": {
+    "express-session": "^1.15.6"
+  }
 }
